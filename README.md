@@ -19,7 +19,7 @@ Server: The server, in this case, is the web server that hosts the website www.p
 
 So, when you run this command, curl sends an HTTP HEAD request to www.propitixhomes.com and displays the response headers in a verbose manner. This is useful for checking the HTTP headers of a web page, which can provide information about the server, content type, response status, and other important metadata without downloading the entire page content.
 
-![Client-Server Architecture](./Images/)
+![Client-Server Architecture](./Images/1.png)
 
 This output is the verbose output of the curl command when you run curl -Iv www.propitixhomes.com. It shows the various stages of the HTTP request being made. Here's a breakdown of the output:
 
