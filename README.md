@@ -47,15 +47,6 @@ To implement a Client-Server Architecture using the MySQL Database Management Sy
 ![Client-Server Architecture](./Images/3.png)
 * Set the MySQL root user password: `sudo mysql_secure_installation`
 ![Client-Server Architecture](./Images/3-1.png)
-* Check the status of the MySQL service: `sudo systemctl status mysql`
-![Client-Server Architecture](./Images/4.png)
-
-### c. Set up the "MySQL Client" instance to connect to the server to send and retrieve data.
-* Update the package list on your Ubuntu:`sudo apt update` 
-* Install the MySQL Client on your Ubuntu Instance: `sudo apt install mysql-client`
-![Client-Server Architecture](./Images/5.png)
-![Client-Server Architecture](./Images/6.png)
-
 > On the MySQL Server:
 > mysql -u root -p
 > 
@@ -72,7 +63,14 @@ To implement a Client-Server Architecture using the MySQL Database Management Sy
 > After creating the user and granting privileges, run:
 > FLUSH PRIVILEGES;
 > This ensures that the changes take effect.
+* Check the status of the MySQL service: `sudo systemctl status mysql`
+![Client-Server Architecture](./Images/4.png)
 
+### c. Set up the "MySQL Client" instance to connect to the server to send and retrieve data.
+* Update the package list on your Ubuntu:`sudo apt update` 
+* Install the MySQL Client on your Ubuntu Instance: `sudo apt install mysql-client`
+![Client-Server Architecture](./Images/5.png)
+![Client-Server Architecture](./Images/6.png)
 * Check if MySQL Client is installed: `mysql --version`
 ![Client-Server Architecture](./Images/7.png)
 
@@ -82,7 +80,7 @@ For security reasons, it's essential to restrict access to your MySQL server to 
 
 ### e. Configure MySQL server to allow connections from remote hosts.
 * Open the MySQL Configuration File for editing: `sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf `
-* Replace '127.0.0.1' to '0.0.0.O' like this: 
+* Replace '127.0.0.1' to '0.0.0.0' like this: 
 ![Client-Server Architecture](./Images/9.png)
 * View the edited contents of MySQL Configuration File`sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf `
 ![Client-Server Architecture](./Images/10.png)
