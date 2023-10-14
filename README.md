@@ -39,11 +39,11 @@ This output is the verbose output of the curl command when you run curl -Iv www.
 To implement a Client-Server Architecture using the MySQL Database Management System on AWS EC2 instances, you would create and configure two Linux-based virtual servers, one designated as the "MySQL Server" and the other as the "MySQL Client." The "MySQL Server" hosts the MySQL database, while the "MySQL Client" connects to this server to send and retrieve data through SQL queries. This architecture accommodates multiple clients, such as applications or other servers, to concurrently access and manipulate the database, providing a scalable and robust solution for data storage and retrieval in an AWS environment.
 
 ### a. Create and configure two Linux-based virtual servers in AWS, one named "MySQL Server" and the other "MySQL Client".
+![Client-Server Architecture](./Images/2.png)
 
 ### b. Install MySQL on the "MySQL Server" instance and configure it as the database server. 
 * Update the package list on your Ubuntu Instance:`sudo apt update` 
 * Install the MySQL server on your Ubuntu Instance: `sudo apt install mysql-server`
-![Client-Server Architecture](./Images/2.png)
 ![Client-Server Architecture](./Images/3.png)
 * Check the status of the MySQL service: `sudo systemctl status mysql`
 ![Client-Server Architecture](./Images/4.png)
