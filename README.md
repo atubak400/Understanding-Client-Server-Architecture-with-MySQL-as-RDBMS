@@ -23,9 +23,9 @@ So, when you run this command, curl sends an HTTP HEAD request to www.propitixho
 
 This output is the verbose output of the curl command when you run curl -Iv www.propitixhomes.com. It shows the various stages of the HTTP request being made. Here's a breakdown of the output:
 
-* Trying 75.2.115.196:80...: curl is attempting to connect to the IP address 75.2.115.196 on port 80. This is the initial step where it establishes a connection with the web server.
+> Trying 75.2.115.196:80...: curl is attempting to connect to the IP address 75.2.115.196 on port 80. This is the initial step where it establishes a connection with the web server.
 
-* Connected to www.propitixhomes.com (75.2.115.196) port 80 (#0): The connection to www.propitixhomes.com at the specified IP address and port 80 is established, and curl has assigned it the identifier "0" for this request.
+> Connected to www.propitixhomes.com (75.2.115.196) port 80 (#0): The connection to www.propitixhomes.com at the specified IP address and port 80 is established, and curl has assigned it the identifier "0" for this request.
 
 > HEAD / HTTP/1.1: This line shows the HTTP request being sent. It's a HEAD request for the root path ("/") using HTTP version 1.1.
 
@@ -36,4 +36,26 @@ This output is the verbose output of the curl command when you run curl -Iv www.
 > Accept: */*: This part of the HTTP request header specifies that the client (curl) can accept any type of content ("/").
 
 ## Implement a Client Server Architecture using MySQL Database Management System (DBMS)
+To implement a Client-Server Architecture using the MySQL Database Management System on AWS EC2 instances, you would create and configure two Linux-based virtual servers, one designated as the "MySQL Server" and the other as the "MySQL Client." The "MySQL Server" hosts the MySQL database, while the "MySQL Client" connects to this server to send and retrieve data through SQL queries. This architecture accommodates multiple clients, such as applications or other servers, to concurrently access and manipulate the database, providing a scalable and robust solution for data storage and retrieval in an AWS environment.
 
+### a. Create and configure two Linux-based virtual servers in AWS, one named "MySQL Server" and the other "MySQL Client".
+
+### b. Install MySQL on the "MySQL Server" instance and configure it as the database server. 
+* Update the package list on your Ubuntu Instance:`sudo apt update` 
+* Install the MySQL server on your Ubuntu Instance: `sudo apt install mysql-server`
+![Client-Server Architecture](./Images/2.png)
+![Client-Server Architecture](./Images/3.png)
+* Check the status of the MySQL service: `sudo systemctl status mysql`
+![Client-Server Architecture](./Images/4.png)
+
+### c. Set up the "MySQL Client" instance to connect to the server to send and retrieve data.
+* Update the package list on your Ubuntu:`sudo apt update` 
+* Install the MySQL Client on your Ubuntu Instance: `sudo apt install mysql-client`
+![Client-Server Architecture](./Images/5.png)
+![Client-Server Architecture](./Images/6.png)
+* Check if MySQL Client is installed: `mysql --version`
+![Client-Server Architecture](./Images/7.png)
+
+### d. To allow external access to your MySQL server, create a new inbound rule in the security group associated with your MySQL server to open TCP port 3306
+For security reasons, it's essential to restrict access to your MySQL server to only allow connections from the specific local IP address of your MySQL client.
+![Client-Server Architecture](./Images/8.png)
