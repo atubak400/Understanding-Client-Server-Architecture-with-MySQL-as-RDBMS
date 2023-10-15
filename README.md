@@ -45,18 +45,19 @@ To implement a Client-Server Architecture using the MySQL Database Management Sy
 * Update the package list on your Ubuntu Instance:`sudo apt update` 
 * Install the MySQL server on your Ubuntu Instance: `sudo apt install mysql-server`
 ![Client-Server Architecture](./Images/3.png)
-* `sudo mysql_secure_installation`
-* `sudo mysql -u root`
-* ALTER USER 'root'@'localhost' IDENTIFIED WITH 'mysql_native_password' BY 'lPassword2024??';
-* Flush Privileges. This ensures that the changes take effect:`FLUSH PRIVILEGES;`
+* Initiate the MySQL secure installation process and answer the relevant questions to your requirements: `sudo mysql_secure_installation`
+* Start the MySQL client as the MySQL root user: `sudo mysql -u root`
+![Client-Server Architecture](./Images/3.1.png)
+* Configured MYSQL to use the 'mysql_native_password' authentication method to set the password to 'your-new-password:
+`'ALTER USER 'root'@'localhost' IDENTIFIED WITH 'mysql_native_password' BY 'your-new-password';`
+* Flush Privileges to ensure that the changes take effect:`FLUSH PRIVILEGES;`
 * exit mysql: `exit`
 * On the MySQL Server, login to mysql as root user and put in your password: `mysql -u root -p`
 * Create the MySQL User with your desired password for user.
 `CREATE USER 'kingsley'@'CLIENT-PRIVATE-IP' IDENTIFIED BY 'Password-for-Client-User-kingsley';`
 * Grant the necessary privileges to the client user. For example, to grant all privileges on all databases:
 `GRANT ALL PRIVILEGES ON *.* TO 'kingsley'@'172.31.22.163';`
-* Flush Privileges. This ensures that the changes take effect.:
-`FLUSH PRIVILEGES;`
+* Flush Privileges to ensure that the changes take effect:`FLUSH PRIVILEGES;`
 * exit mysql: `exit`
 * Restart mysql: `sudo systemctl restart mysql`
 * Check the status of the MySQL service: `sudo systemctl status mysql`
@@ -82,10 +83,15 @@ For security reasons, it's essential to restrict access to your MySQL server to 
 ![Client-Server Architecture](./Images/10.png)
 
 ### f. From mysql client Linux Server connect remotely to mysql server Database Engine
-* `mysql -u kingsley -h client-private-IP -p`
+* Connect to MySQL server from client machine using the MySQL client: `mysql -u kingsley -h client-private-IP -p`
+![Client-Server Architecture](./Images/11.png)
 
 ### g. Check that you have successfully connected to a remote MySQL server and can perform SQL queries
-* `Show databases;`
+* `Show databases;` : This list all the databases on a MySQL server
+![Client-Server Architecture](./Images/12.png)
+* `USE information_schema`: This change the active database to the information_schema
+* `SHOW TABLES;`: This will show us what tables are available within our schema (information_schema):
+![Client-Server Architecture](./Images/13.png)
 
 # Congratulations you have successfully installed, configured, and remote connected a MYSQL SERVER!!!
 
@@ -100,3 +106,6 @@ For security reasons, it's essential to restrict access to your MySQL server to 
 
 
 
+lPassword2024??
+DeHigherDymsql2211???
+mysql -u kingsley -h client-private-IP -p
