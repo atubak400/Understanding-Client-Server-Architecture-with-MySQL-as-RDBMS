@@ -45,24 +45,20 @@ To implement a Client-Server Architecture using the MySQL Database Management Sy
 * Update the package list on your Ubuntu Instance:`sudo apt update` 
 * Install the MySQL server on your Ubuntu Instance: `sudo apt install mysql-server`
 ![Client-Server Architecture](./Images/3.png)
-* Set the MySQL root user password: `sudo mysql_secure_installation`
-![Client-Server Architecture](./Images/3-1.png)
-> On the MySQL Server:
-> mysql -u root -p
-> 
-> Create the MySQL User:
-> 
-> Replace 'your_password' with the desired password for the "kingsley" user.
-> CREATE USER 'kingsley'@'localhost' IDENTIFIED BY 'your_password';
-> 
-> Grant Privileges:
-> Grant the necessary privileges to the user. For example, to grant all privileges on all databases:
-> GRANT ALL PRIVILEGES ON *.* TO 'kingsley'@'localhost';
-> 
-> Flush Privileges:
-> After creating the user and granting privileges, run:
-> FLUSH PRIVILEGES;
-> This ensures that the changes take effect.
+* `sudo mysql_secure_installation`
+* `sudo mysql -u root`
+* ALTER USER 'root'@'localhost' IDENTIFIED WITH 'mysql_native_password' BY 'lPassword2024??';
+* Flush Privileges. This ensures that the changes take effect:`FLUSH PRIVILEGES;`
+* exit mysql: `exit`
+* On the MySQL Server, login to mysql as root user and put in your password: `mysql -u root -p`
+* Create the MySQL User with your desired password for user.
+`CREATE USER 'kingsley'@'CLIENT-PRIVATE-IP' IDENTIFIED BY 'Password-for-Client-User-kingsley';`
+* Grant the necessary privileges to the client user. For example, to grant all privileges on all databases:
+`GRANT ALL PRIVILEGES ON *.* TO 'kingsley'@'172.31.22.163';`
+* Flush Privileges. This ensures that the changes take effect.:
+`FLUSH PRIVILEGES;`
+* exit mysql: `exit`
+* Restart mysql: `sudo systemctl restart mysql`
 * Check the status of the MySQL service: `sudo systemctl status mysql`
 ![Client-Server Architecture](./Images/4.png)
 
@@ -79,15 +75,17 @@ For security reasons, it's essential to restrict access to your MySQL server to 
 ![Client-Server Architecture](./Images/8.png)
 
 ### e. Configure MySQL server to allow connections from remote hosts.
-* Open the MySQL Configuration File for editing: `sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf `
+* Open the MySQL Configuration File for editing: `sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf`
 * Replace '127.0.0.1' to '0.0.0.0' like this: 
 ![Client-Server Architecture](./Images/9.png)
 * View the edited contents of MySQL Configuration File`sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf `
 ![Client-Server Architecture](./Images/10.png)
 
+### f. From mysql client Linux Server connect remotely to mysql server Database Engine
+* `mysql -u kingsley -h client-private-IP -p`
 
-
-# mysql -u kingsley -h mysql-server -p
+### g. Check that you have successfully connected to a remote MySQL server and can perform SQL queries
+* `Show databases;`
 
 
 
