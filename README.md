@@ -96,19 +96,8 @@ For security reasons, it's essential to restrict access to your MySQL server to 
 * `SHOW TABLES;`: This will show us what tables are available within our schema (information_schema):
 ![Client-Server Architecture](./Images/13.png)
 
+
+
+
+
 # Congratulations you have successfully installed, configured, and remote connected a MYSQL SERVER!!!
-
-
-
-
-
-
-
-
-
-
-
-
-lPassword2024??Mv???
-DeHigherDymsql2211???
-mysql -u kingsley -h client-private-IP -p
