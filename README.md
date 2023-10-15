@@ -87,7 +87,7 @@ For security reasons, it's essential to restrict access to your MySQL server to 
 ### g. Check that you have successfully connected to a remote MySQL server and can perform SQL queries
 * `Show databases;`
 
-# Congratulations you have installed, configured, and remote connected a MYSQL SERVER!!!
+# Congratulations you have successfully installed, configured, and remote connected a MYSQL SERVER!!!
 
 
 
