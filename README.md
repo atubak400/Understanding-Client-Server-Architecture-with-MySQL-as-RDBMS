@@ -90,9 +90,9 @@ For security reasons, it's essential to restrict access to your MySQL server to 
 ![Client-Server Architecture](./Images/11.png)
 
 ### g. Check that you have successfully connected to a remote MySQL server and can perform SQL queries
-* `Show databases;` : This list all the databases on a MySQL server
+* `Show databases;` : This list all the databases on the MySQL Server
 ![Client-Server Architecture](./Images/12.png)
-* `USE information_schema`: This change the active database to the information_schema
+* `USE information_schema`: This changes the active database to the information_schema on the Server
 * `SHOW TABLES;`: This will show us what tables are available within our schema (information_schema):
 ![Client-Server Architecture](./Images/13.png)
 
