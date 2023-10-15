@@ -52,13 +52,16 @@ To implement a Client-Server Architecture using the MySQL Database Management Sy
 `'ALTER USER 'root'@'localhost' IDENTIFIED WITH 'mysql_native_password' BY 'your-new-password';`
 * Flush Privileges to ensure that the changes take effect:`FLUSH PRIVILEGES;`
 * exit mysql: `exit`
+![Client-Server Architecture](./Images/14.png)
 * On the MySQL Server, login to mysql as root user and put in your password: `mysql -u root -p`
 * Create the MySQL User with your desired password for user.
 `CREATE USER 'kingsley'@'CLIENT-PRIVATE-IP' IDENTIFIED BY 'Password-for-Client-User-kingsley';`
 * Grant the necessary privileges to the client user. For example, to grant all privileges on all databases:
+![Client-Server Architecture](./Images/15.png)
 `GRANT ALL PRIVILEGES ON *.* TO 'kingsley'@'172.31.22.163';`
 * Flush Privileges to ensure that the changes take effect:`FLUSH PRIVILEGES;`
 * exit mysql: `exit`
+![Client-Server Architecture](./Images/16.png)
 * Restart mysql: `sudo systemctl restart mysql`
 * Check the status of the MySQL service: `sudo systemctl status mysql`
 ![Client-Server Architecture](./Images/4.png)
@@ -106,6 +109,6 @@ For security reasons, it's essential to restrict access to your MySQL server to 
 
 
 
-lPassword2024??
+lPassword2024??Mv???
 DeHigherDymsql2211???
 mysql -u kingsley -h client-private-IP -p
